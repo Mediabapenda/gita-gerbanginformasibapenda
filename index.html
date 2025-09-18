@@ -63,15 +63,19 @@
         <header class="bg-white shadow-md w-full p-4 flex justify-between items-center sticky top-0 z-50">
             <div class="flex items-center space-x-4">
                 <!-- Lambang Kabupaten Badung -->
-                <img src="https://badungkab.go.id/assets/templates/badung/images/logo-badung.png" alt="Logo Badung" class="h-10 md:h-12">
-                <!-- Placeholder for Gita.id Logo (replace with your actual logo file) -->
-                
+                <img src="images/Lambang_Kabupaten_Badung.png" alt="Logo Badung" class="h-10 md:h-12">
+                <!-- Gita.id Logo -->
+                <img src="images/Gita.id.png" alt="Logo GITA.id" class="h-8 md:h-10">
             </div>
             <div class="flex items-center space-x-4">
-                <!-- Login/Sign in Buttons -->
-                <div class="hidden md:flex items-center space-x-4 text-sm">
+                <!-- User Menus -->
+                <div id="loggedOutUserMenu" class="hidden md:flex items-center space-x-4 text-sm">
                     <button id="loginButton" class="font-medium text-gray-600 hover:text-red-700 transition-colors" data-translate="login_button">Log In</button>
                     <button id="showRegisterFormButton" class="font-medium text-white bg-red-600 px-4 py-2 rounded-lg hover:bg-red-700 transition-colors" data-translate="register_button">Sign In</button>
+                </div>
+                 <div id="loggedInUserMenu" class="hidden md:flex items-center space-x-4 text-sm">
+                    <span class="font-medium text-gray-700" data-translate="welcome_admin">Selamat Datang, Admin</span>
+                    <button id="logoutButton" class="font-medium text-white bg-gray-600 px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors" data-translate="logout_button">Logout</button>
                 </div>
                 <!-- Language Switcher -->
                 <div class="bg-gray-100 rounded-full p-1 flex space-x-1">
@@ -91,7 +95,6 @@
                     <div class="container mx-auto px-6 py-24 text-center">
                         <h2 class="text-4xl md:text-5xl font-extrabold mb-2 leading-tight" data-translate="welcome_title">Satu Rumah Digital untuk Pajak Daerah</h2>
                         <p class="text-lg text-red-100 mb-8 max-w-3xl mx-auto" data-translate="welcome_subtitle">Layanan terintegrasi untuk pendaftaran, pelaporan, dan pembayaran pajak yang lebih mudah, cepat, dan transparan.</p>
-                        <!-- Buttons removed from here -->
                     </div>
                 </div>
                 
@@ -159,6 +162,55 @@
                                 <h4 class="font-bold text-lg" data-translate="service_payment">Pembayaran Online</h4>
                                 <p class="text-gray-600 text-sm mt-2" data-translate="service_payment_desc">Bayar pajak Anda dengan mudah melalui berbagai kanal pembayaran digital.</p>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- VIEW: Login Form -->
+            <section id="loginView" class="view py-12 bg-gray-50">
+                <div class="max-w-md mx-auto bg-white rounded-xl shadow-lg p-8">
+                    <div class="text-center mb-8">
+                        <h2 class="text-2xl font-semibold text-gray-800" data-translate="login_title">Login Super Admin</h2>
+                        <p class="text-gray-500 mt-1" data-translate="login_subtitle">Akses dashboard internal GITA.id.</p>
+                    </div>
+                    <form id="loginForm">
+                        <div class="space-y-6">
+                            <div>
+                                <label for="username" class="block text-sm font-medium text-gray-700 mb-1" data-translate="login_username">Username</label>
+                                <input type="text" id="username" name="username" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500" required>
+                            </div>
+                            <div>
+                                <label for="password" class="block text-sm font-medium text-gray-700 mb-1" data-translate="login_password">Password</label>
+                                <input type="password" id="password" name="password" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500" required>
+                            </div>
+                        </div>
+                        <div id="loginErrorMessage" class="hidden text-red-500 text-sm mt-4 text-center"></div>
+                        <div class="mt-8 grid grid-cols-2 gap-4">
+                            <button type="button" id="backToHomeFromLogin" class="w-full bg-gray-200 text-gray-800 font-semibold py-3 px-4 rounded-md hover:bg-gray-300" data-translate="back_button">Kembali</button>
+                            <button type="submit" class="w-full bg-red-600 text-white font-semibold py-3 px-4 rounded-md hover:bg-red-700" data-translate="login_button">Log In</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- VIEW: Admin Dashboard -->
+            <section id="adminDashboardView" class="view py-12 bg-gray-50">
+                <div class="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-8">
+                    <h2 class="text-3xl font-bold text-gray-800 mb-4" data-translate="dashboard_admin_title">Dashboard Super Admin</h2>
+                    <p class="text-gray-600 mb-8" data-translate="dashboard_admin_subtitle">Selamat datang di sistem internal GITA.id. Di sini Anda dapat mengelola seluruh aspek data perpajakan.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                        <div class="p-6 bg-red-50 rounded-lg border border-red-200">
+                            <i class="fas fa-users text-4xl text-red-500"></i>
+                            <h3 class="mt-4 font-semibold" data-translate="menu_wp_management">Manajemen Wajib Pajak</h3>
+                        </div>
+                         <div class="p-6 bg-red-50 rounded-lg border border-red-200">
+                            <i class="fas fa-chart-line text-4xl text-red-500"></i>
+                            <h3 class="mt-4 font-semibold" data-translate="menu_reporting">Pelaporan & Analitik</h3>
+                        </div>
+                         <div class="p-6 bg-red-50 rounded-lg border border-red-200">
+                            <i class="fas fa-cogs text-4xl text-red-500"></i>
+                            <h3 class="mt-4 font-semibold" data-translate="menu_system_settings">Pengaturan Sistem</h3>
                         </div>
                     </div>
                 </div>
@@ -239,8 +291,8 @@
         <footer class="bg-gray-800 text-white p-8">
             <div class="container mx-auto flex flex-col md:flex-row justify-between items-center text-center md:text-left">
                 <div class="flex items-center space-x-4">
-                    <!-- Placeholder for Bapenda Logo (replace with your actual logo file) -->
-                    
+                    <!-- Bapenda Logo -->
+                    <img src="images/Logo Bapenda.jpg" alt="Logo Bapenda" class="h-12">
                     <div>
                         <p class="font-bold" data-translate="footer_managed_by">Dikelola oleh Bapenda Kabupaten Badung</p>
                         <p class="text-sm text-gray-400">&copy; 2025 Hak Cipta Dilindungi.</p>
@@ -256,29 +308,317 @@ document.addEventListener('DOMContentLoaded', function () {
     // A dictionary to hold all text translations
     const translations = {
         id: {
-            // ... existing code ... -->
+            page_title: "GITA.id - Portal Pajak Daerah Badung",
             login_button: "Masuk",
             register_button: "Daftar",
+            logout_button: "Keluar",
+            welcome_admin: "Selamat Datang, Admin",
+            login_title: "Login Super Admin",
+            login_subtitle: "Akses dashboard internal GITA.id.",
+            login_username: "Username",
+            login_password: "Password",
+            login_error: "Username atau password salah.",
+            dashboard_admin_title: "Dashboard Super Admin",
+            dashboard_admin_subtitle: "Selamat datang di sistem internal GITA.id. Di sini Anda dapat mengelola seluruh aspek data perpajakan.",
+            menu_wp_management: "Manajemen Wajib Pajak",
+            menu_reporting: "Pelaporan & Analitik",
+            menu_system_settings: "Pengaturan Sistem",
+            welcome_title: "Satu Rumah Digital untuk Pajak Daerah",
+            welcome_subtitle: "Layanan terintegrasi untuk pendaftaran, pelaporan, dan pembayaran pajak yang lebih mudah, cepat, dan transparan.",
             dashboard_title: "Transparansi Pendapatan Daerah",
-            // ... existing code ... -->
+            dashboard_subtitle: "Komitmen kami untuk keterbukaan informasi publik.",
+            dashboard_chart_title: "Realisasi Pajak Daerah 2025",
+            dashboard_realization: "Realisasi",
+            dashboard_target: "Target",
+            services_title: "Layanan Terpadu GITA.id",
+            services_subtitle: "Semua kebutuhan perpajakan Anda dalam satu portal.",
+            service_register: "Pendaftaran Wajib Pajak",
+            service_register_desc: "Daftarkan usaha baru Anda secara online dan dapatkan NPWPD dengan cepat.",
+            service_report: "Pelaporan Pajak (e-SPTPD)",
+            service_report_desc: "Laporkan omzet usaha Anda setiap bulan secara mandiri melalui sistem online.",
+            service_payment: "Pembayaran Online",
+            service_payment_desc: "Bayar pajak Anda dengan mudah melalui berbagai kanal pembayaran digital.",
+            form_title: "Pendaftaran Wajib Pajak Baru",
+            form_subtitle: "Daftarkan usaha Anda untuk mendapatkan NPWPD.",
+            form_owner_name: "Nama Pemilik / Penanggung Jawab",
+            form_business_name: "Nama Usaha / Objek Pajak",
+            form_tax_type: "Jenis Pajak",
+            form_tax_type_select: "-- Pilih Jenis Pajak --",
+            tax_hotel: "Pajak Hotel",
+            tax_restaurant: "Pajak Restoran",
+            tax_entertainment: "Pajak Hiburan",
+            tax_billboard: "Pajak Reklame",
+            form_address: "Alamat Lengkap Usaha",
+            form_email: "Alamat Email",
+            form_phone: "Nomor Telepon / HP Aktif",
+            back_button: "Kembali",
+            submit_button: "Daftar",
+            submit_button_loading: "Mengirim...",
+            success_title: "Pendaftaran Berhasil!",
+            success_message: "Terima kasih. Data Anda telah kami terima dan akan segera diproses. Tim kami akan menghubungi Anda untuk verifikasi.",
+            back_to_home_button: "Kembali ke Halaman Utama",
+            error_title: "Pendaftaran Gagal",
+            error_message: "Maaf, terjadi kesalahan. Silakan coba lagi dalam beberapa saat.",
+            try_again_button: "Coba Lagi",
+            footer_managed_by: "Dikelola oleh Bapenda Kabupaten Badung"
         },
         en: {
-            // ... existing code ... -->
+            page_title: "GITA.id - Badung Regional Tax Portal",
             login_button: "Log In",
             register_button: "Sign In",
+            logout_button: "Logout",
+            welcome_admin: "Welcome, Admin",
+            login_title: "Super Admin Login",
+            login_subtitle: "Access the GITA.id internal dashboard.",
+            login_username: "Username",
+            login_password: "Password",
+            login_error: "Incorrect username or password.",
+            dashboard_admin_title: "Super Admin Dashboard",
+            dashboard_admin_subtitle: "Welcome to the GITA.id internal system. Here you can manage all aspects of tax data.",
+            menu_wp_management: "Taxpayer Management",
+            menu_reporting: "Reporting & Analytics",
+            menu_system_settings: "System Settings",
+            welcome_title: "One Digital Home for Regional Taxes",
+            welcome_subtitle: "Integrated services for easier, faster, and more transparent tax registration, reporting, and payment.",
             dashboard_title: "Transparency of Regional Revenue",
-            // ... existing code ... -->
+            dashboard_subtitle: "Our commitment to public information disclosure.",
+            dashboard_chart_title: "Regional Tax Realization 2025",
+            dashboard_realization: "Realization",
+            dashboard_target: "Target",
+            services_title: "GITA.id Integrated Services",
+            services_subtitle: "All your tax needs in one portal.",
+            form_title: "New Taxpayer Registration",
+            form_subtitle: "Register your business to get a local taxpayer identification number (NPWPD).",
+            form_owner_name: "Owner's Name / Person in Charge",
+            form_business_name: "Business Name / Tax Object",
+            form_tax_type: "Type of Tax",
+            form_tax_type_select: "-- Select Tax Type --",
+            tax_hotel: "Hotel Tax",
+            tax_restaurant: "Restaurant Tax",
+            tax_entertainment: "Entertainment Tax",
+            tax_billboard: "Billboard Tax",
+            form_address: "Full Business Address",
+            form_email: "Email Address",
+            form_phone: "Active Phone Number",
+            back_button: "Back",
+            submit_button: "Register",
+            submit_button_loading: "Submitting...",
+            success_title: "Registration Successful!",
+            success_message: "Thank you. Your data has been received and will be processed shortly. Our team will contact you for verification.",
+            back_to_home_button: "Back to Home",
+            error_title: "Registration Failed",
+            error_message: "Sorry, an error occurred. Please try again in a few moments.",
+            try_again_button: "Try Again",
+            footer_managed_by: "Managed by Bapenda of Badung Regency"
         },
         ru: {
-            // ... existing code ... -->
+            page_title: "GITA.id - Налоговый портал Бадунга",
             login_button: "Войти",
             register_button: "Регистрация",
+            logout_button: "Выйти",
+            welcome_admin: "Добро пожаловать, Администратор",
+            login_title: "Вход для суперадминистратора",
+            login_subtitle: "Доступ к внутренней панели управления GITA.id.",
+            login_username: "Имя пользователя",
+            login_password: "Пароль",
+            login_error: "Неверное имя пользователя или пароль.",
+            dashboard_admin_title: "Панель управления суперадминистратора",
+            dashboard_admin_subtitle: "Добро пожаловать во внутреннюю систему GITA.id. Здесь вы можете управлять всеми аспектами налоговых данных.",
+            menu_wp_management: "Управление налогоплательщиками",
+            menu_reporting: "Отчетность и аналитика",
+            menu_system_settings: "Настройки системы",
+            welcome_title: "Единый цифровой дом для региональных налогов",
+            welcome_subtitle: "Интегрированные услуги для более простой, быстрой и прозрачной регистрации, отчетности и уплаты налогов.",
             dashboard_title: "Прозрачность региональных доходов",
-            // ... existing code ... -->
+            dashboard_subtitle: "Наша приверженность раскрытию публичной информации.",
+            dashboard_chart_title: "Реализация региональных налогов 2025",
+            dashboard_realization: "Реализация",
+            dashboard_target: "Цель",
+            services_title: "Интегрированные услуги GITA.id",
+            services_subtitle: "Все ваши налоговые потребности на одном портале.",
+            form_title: "Регистрация нового налогоплательщика",
+            form_subtitle: "Зарегистрируйте свой бизнес, чтобы получить местный идентификационный номер налогоплательщика (NPWPD).",
+            form_owner_name: "Имя владельца / Ответственное лицо",
+            form_business_name: "Название компании / объект налогообложения",
+            form_tax_type: "Вид налога",
+            form_tax_type_select: "-- Выберите вид налога --",
+            tax_hotel: "Гостиничный налог",
+            tax_restaurant: "Ресторанный налог",
+            tax_entertainment: "Налог на развлечения",
+            tax_billboard: "Налог на рекламу",
+            form_address: "Полный адрес компании",
+            form_email: "Адрес электронной почты",
+            form_phone: "Активный номер телефона",
+            back_button: "Назад",
+            submit_button: "Зарегистрироваться",
+            submit_button_loading: "Отправка...",
+            success_title: "Регистрация прошла успешно!",
+            success_message: "Спасибо. Ваши данные получены и будут обработаны в ближайшее время. Наша команда свяжется с вами для проверки.",
+            back_to_home_button: "Вернуться на главную",
+            error_title: "Ошибка регистрации",
+            error_message: "К сожалению, произошла ошибка. Пожалуйста, повторите попытку через несколько мгновений.",
+            try_again_button: "Попробовать снова",
+            footer_managed_by: "Управляется Bapenda округа Бадунг"
         }
     };
 
-    // ... existing code ... -->
+    // --- STATE MANAGEMENT ---
+    let isLoggedIn = false;
+
+    // --- DOM Elements ---
+    const views = {
+        landing: document.getElementById('landingPage'),
+        login: document.getElementById('loginView'),
+        adminDashboard: document.getElementById('adminDashboardView'),
+        form: document.getElementById('formContainer'),
+        message: document.getElementById('messageContainer')
+    };
+    
+    const taxRegistrationForm = document.getElementById('taxRegistrationForm');
+    const loginForm = document.getElementById('loginForm');
+    
+    const submitButton = document.getElementById('submitButton');
+    const buttonText = document.getElementById('buttonText');
+    const loader = document.getElementById('loader');
+    
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+    const loginErrorMessage = document.getElementById('loginErrorMessage');
+    
+    const loggedOutUserMenu = document.getElementById('loggedOutUserMenu');
+    const loggedInUserMenu = document.getElementById('loggedInUserMenu');
+    const logoutButton = document.getElementById('logoutButton');
+    
+    /**
+     * Switches the active view.
+     * @param {string} viewName - The name of the view to show.
+     */
+    function switchView(viewName) {
+        Object.values(views).forEach(view => view.classList.remove('active'));
+        if (views[viewName]) {
+            views[viewName].classList.add('active');
+            window.scrollTo(0, 0);
+        }
+    }
+
+    /**
+     * Updates header UI based on login state.
+     */
+    function updateHeaderUI() {
+        if (isLoggedIn) {
+            loggedOutUserMenu.classList.add('hidden');
+            loggedInUserMenu.classList.remove('hidden');
+        } else {
+            loggedOutUserMenu.classList.remove('hidden');
+            loggedInUserMenu.classList.add('hidden');
+        }
+    }
+    
+    /**
+     * Applies the selected language to all elements with a data-translate attribute.
+     * @param {string} lang - The language code ('id', 'en', 'ru').
+     */
+    function setLanguage(lang) {
+        if (!translations[lang]) return;
+
+        localStorage.setItem('gita-lang', lang);
+        document.documentElement.lang = lang;
+
+        document.querySelectorAll('[data-translate]').forEach(el => {
+            const key = el.getAttribute('data-translate');
+            if (translations[lang][key]) {
+                el.textContent = translations[lang][key];
+            }
+        });
+        
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+    }
+    
+    // --- EVENT HANDLERS ---
+    function handleLogin(e) {
+        e.preventDefault();
+        const username = loginForm.elements.username.value;
+        const password = loginForm.elements.password.value;
+        const lang = localStorage.getItem('gita-lang') || 'id';
+
+        // --- Hardcoded Super Admin Credentials ---
+        if (username === 'admin' && password === 'admin123') {
+            isLoggedIn = true;
+            updateHeaderUI();
+            switchView('adminDashboard');
+            loginErrorMessage.classList.add('hidden');
+            loginForm.reset();
+        } else {
+            loginErrorMessage.textContent = translations[lang].login_error;
+            loginErrorMessage.classList.remove('hidden');
+        }
+    }
+
+    function handleLogout() {
+        isLoggedIn = false;
+        updateHeaderUI();
+        switchView('landing');
+    }
+
+    // --- EVENT LISTENERS ---
+    document.querySelectorAll('.lang-btn').forEach(button => {
+        button.addEventListener('click', (e) => setLanguage(e.target.dataset.lang));
+    });
+    
+    // Navigation buttons
+    document.getElementById('loginButton').addEventListener('click', () => switchView('login'));
+    document.getElementById('showRegisterFormButton').addEventListener('click', () => switchView('form'));
+    document.getElementById('backToHomeButton').addEventListener('click', () => switchView('landing'));
+    document.getElementById('backToHomeFromLogin').addEventListener('click', () => switchView('landing'));
+    logoutButton.addEventListener('click', handleLogout);
+
+    document.querySelectorAll('.message-reset-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+             taxRegistrationForm.reset();
+             switchView('landing');
+        });
+    });
+
+    // Form Submissions
+    loginForm.addEventListener('submit', handleLogin);
+    taxRegistrationForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        
+        const lang = localStorage.getItem('gita-lang') || 'id';
+        buttonText.textContent = translations[lang].submit_button_loading;
+        loader.style.display = 'inline-block';
+        submitButton.disabled = true;
+
+        fetch(this.action, {
+            method: 'POST',
+            body: new FormData(this),
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+            switchView('message');
+            successMessage.classList.toggle('hidden', !response.ok);
+            errorMessage.classList.toggle('hidden', response.ok);
+        })
+        .catch(error => {
+            switchView('message');
+            successMessage.classList.add('hidden');
+            errorMessage.classList.remove('hidden');
+        })
+        .finally(() => {
+            const lang = localStorage.getItem('gita-lang') || 'id';
+            buttonText.textContent = translations[lang].submit_button;
+            loader.style.display = 'none';
+            submitButton.disabled = false;
+        });
+    });
+
+    // --- INITIALIZATION ---
+    const savedLang = localStorage.getItem('gita-lang') || 'id';
+    setLanguage(savedLang);
+    updateHeaderUI(); // Set initial header state
+    switchView('landing'); // Show the landing page by default
 });
 </script>
 
