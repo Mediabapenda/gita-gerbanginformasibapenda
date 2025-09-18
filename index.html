@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="page_title">GITA.id - Portal Pajak Daerah Badung</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .view {
+            display: none;
+        }
+        .view.active {
+            display: block;
+        }
+        .form-container.loading {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        .loader {
+            border-top-color: #c9302c;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        .lang-btn.active {
+            background-color: #fff;
+            color: #b91c1c;
+        }
+        .hero-bg {
+            background-color: #b91c1c;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23991b1b' fill-opacity='0.4'%3E%3Cpath opacity='.5' d='M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9zm-1 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm9-10v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-10 0v-9h-9v9h9zm-9-10h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9zm10 0h9v-9h-9v9z'/%3E%3Cpath d='M6 5V0h1v5h9V0h1v5h9V0h1v5h9V0h1v5h9V0h1v5h9V0h1v5h9V0h1v5h9V0h1v5h9V0h1v5h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v5h-1v-5h-9v5h-1v-5h-9v5h-1v-5h-9v5h-1v-5h-9v5h-1v-5h-9v5h-1v-5h-9v5h-1v-5h-9v5h-1v-5h-9v5H0v-1h5v-9H0v-1h5v-9H0v-1h5v-9H0v-1h5v-9H0v-1h5v-9H0v-1h5v-9H0v-1h5v-9H0v-1h5V0h1v5zm10 0h9V5h-9V0zm10 0h9V5h-9V0zm10 0h9V5h-9V0zm10 0h9V5h-9V0zm10 0h9V5h-9V0zm10 0h9V5h-9V0zm10 0h9V5h-9V0zm10 0h9V5h-9V0zm9 1v9h-9V6h9zm-10 0v9h-9V6h9zm-10 0v9h-9V6h9zm-10 0v9h-9V6h9zm-10 0v9h-9V6h9zm-10 0v9h-9V6h9zm-10 0v9h-9V6h9zm-10 0v9h-9V6h9zm-9 1v9h-9V7h9zm10 0v9h-9V7h9zm10 0v9h-9V7h9zm10 0v9h-9V7h9zm10 0v9h-9V7h9zm10 0v9h-9V7h9zm10 0v9h-9V7h9zm10 0v9h-9V7h9zm9 1v9h-9V8h9zm-10 0v9h-9V8h9zm-10 0v9h-9V8h9zm-10 0v9h-9V8h9zm-10 0v9h-9V8h9zm-10 0v9h-9V8h9zm-10 0v9h-9V8h9zm-10 0v9h-9V8h9zm-9 1v9h-9V9h9zm10 0v9h-9V9h9zm10 0v9h-9V9h9zm10 0v9h-9V9h9zm10 0v9h-9V9h9zm10 0v9h-9V9h9zm10 0v9h-9V9h9zm10 0v9h-9V9h9zm9 1v9h-9v-9h9zm-10 0v9h-9v-9h9zm-10 0v9h-9v-9h9zm-10 0v9h-9v-9h9zm-10 0v9h-9v-9h9zm-10 0v9h-9v-9h9zm-10 0v9h-9v-9h9zm-10 0v9h-9v-9h9zm-9 1v9h-9v-9h9zm10 0v9h-9v-9h9zm10 0v9h-9v-9h9zm10 0v9h-9v-9h9zm10 0v9h-9v-9h9zm10 0v9h-9v-9h9zm10 0v9h-9v-9h9zm10 0v9h-9v-9h9zm9 1v9h-9v-9h9zm-10 0v9h-9v-9h9zm-10 0v9h-9v-9h9zm-10 0v9h-9v-9h9zm-10 0v9h-9v-9h9zm-10 0v9h-9v-9h9zm-10 0v9h-9v-9h9zm-10 0v9h-9v-9h9zm-9 1v9h-9v-9h9zm10 0v9h-9v-9h9zm10 0v9h-9v-9h9zm10 0v9h-9v-9h9zm10 0v9h-9v-9h9zm10 0v9h-9v-9h9zm10 0v9h-9v-9h9zm10 0v9h-9v-9h9zm9 1v9h-9v-9h9zm-10 0v9h-9v-9h9zm-10 0v9h-9v-9h9zm-10 0v9h-9v-9h9zm-10 0v9h-9v-9h9zm-10 0v9h-9v-9h9zm-10 0v9h-9v-9h9zm-10 0v9h-9v-9h9zm-9 1v9h-9v-9h9zm10 0v9h-9v-9h9zm10 0v9h-9v-9h9zm10 0v9h-9v-9h9zm10 0v9h-9v-9h9zm10 0v9h-9v-9h9zm10 0v9h-9v-9h9zm10 0v9h-9v-9h9z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body class="bg-gray-200">
+
+    <div class="min-h-screen flex flex-col">
+        <!-- HEADER -->
+        <header class="bg-white shadow-md w-full p-4 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <img src="https://badungkab.go.id/assets/templates/badung/images/logo-badung.png" alt="Logo Badung" class="h-12">
+                <div>
+                    <h1 class="text-xl font-bold text-gray-800" data-translate="header_title">SISTEM INFORMASI EKSEKUTIF</h1>
+                    <p class="text-sm text-gray-500" data-translate="header_subtitle">BAPENDA KABUPATEN BADUNG</p>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2">
+                <!-- Language Switcher -->
+                <div class="bg-red-700 rounded-full p-1 flex space-x-1">
+                    <button id="lang-id" class="lang-btn text-white text-xs font-bold rounded-full w-8 h-6" data-lang="id">ID</button>
+                    <button id="lang-en" class="lang-btn text-white text-xs font-bold rounded-full w-8 h-6" data-lang="en">EN</button>
+                    <button id="lang-ru" class="lang-btn text-white text-xs font-bold rounded-full w-8 h-6" data-lang="ru">RU</button>
+                </div>
+                <!-- Social Media Icons -->
+                <a href="#" class="text-gray-600 hover:text-red-700"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-gray-600 hover:text-red-700"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-600 hover:text-red-700"><i class="fab fa-youtube"></i></a>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main class="flex-grow">
+            <!-- VIEW: Landing Page -->
+            <section id="landingPage" class="view">
+                <div class="hero-bg text-white">
+                    <div class="container mx-auto px-6 py-24 flex flex-col md:flex-row items-center">
+                        <div class="md:w-1/2">
+                            <h2 class="text-5xl font-bold mb-2" data-translate="welcome_title">Selamat Datang</h2>
+                            <p class="text-lg mb-8" data-translate="welcome_subtitle">Website ini dibuat sebagai wujud komitmen kami untuk memberikan layanan informasi dan keterbukaan publik.</p>
+                            <div class="flex space-x-4">
+                                <button id="loginButton" class="bg-white text-red-700 font-bold py-3 px-6 rounded-lg hover:bg-gray-200 transition-colors" data-translate="login_button">Masuk</button>
+                                <button id="showRegisterFormButton" class="border-2 border-white text-white font-bold py-3 px-6 rounded-lg hover:bg-white hover:text-red-700 transition-colors" data-translate="register_button">Buat Akun</button>
+                            </div>
+                        </div>
+                        <div class="md:w-1/2 mt-8 md:mt-0 flex justify-center">
+                           <img src="https://placehold.co/500x350/ffffff/b91c1c?text=Foto+Pimpinan\n(Placeholder)" alt="Foto Pimpinan" class="rounded-lg shadow-xl">
+                        </div>
+                    </div>
+                </div>
+                 <!-- Placeholder for Target vs Realisasi -->
+                <div class="container mx-auto p-8 -mt-16">
+                     <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                        <h3 class="text-2xl font-bold text-gray-800" data-translate="dashboard_title">TARGET VS REALISASI PAJAK DAERAH</h3>
+                        <p class="text-gray-500 mt-2" data-translate="dashboard_subtitle">Fitur dashboard lengkap akan tersedia setelah Anda masuk.</p>
+                        <i class="fas fa-chart-line text-5xl text-red-200 mt-4"></i>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW: Registration Form -->
+            <section id="formContainer" class="view form-container p-4 md:p-8">
+                <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8">
+                     <div class="text-center mb-8">
+                        <h2 class="text-2xl font-semibold text-gray-800" data-translate="form_title">Pendaftaran Wajib Pajak Baru</h2>
+                        <p class="text-gray-500 mt-1" data-translate="form_subtitle">Daftarkan usaha Anda untuk mendapatkan NPWPD.</p>
+                    </div>
+                    <form id="taxRegistrationForm" action="https://formspree.io/f/xrbawdyz" method="POST">
+                         <div class="space-y-6">
+                            <div>
+                                <label for="ownerName" class="block text-sm font-medium text-gray-700 mb-1" data-translate="form_owner_name">Nama Pemilik / Penanggung Jawab</label>
+                                <input type="text" id="ownerName" name="Nama Pemilik" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500" required>
+                            </div>
+                            <div>
+                                <label for="businessName" class="block text-sm font-medium text-gray-700 mb-1" data-translate="form_business_name">Nama Usaha / Objek Pajak</label>
+                                <input type="text" id="businessName" name="Nama Usaha" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500" required>
+                            </div>
+                            <div>
+                                <label for="taxType" class="block text-sm font-medium text-gray-700 mb-1" data-translate="form_tax_type">Jenis Pajak</label>
+                                <select id="taxType" name="Jenis Pajak" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500" required>
+                                    <option value="" disabled selected data-translate="form_tax_type_select">-- Pilih Jenis Pajak --</option>
+                                    <option value="Hotel" data-translate="tax_hotel">Pajak Hotel</option>
+                                    <option value="Restoran" data-translate="tax_restaurant">Pajak Restoran</option>
+                                    <option value="Hiburan" data-translate="tax_entertainment">Pajak Hiburan</option>
+                                    <option value="Reklame" data-translate="tax_billboard">Pajak Reklame</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="businessAddress" class="block text-sm font-medium text-gray-700 mb-1" data-translate="form_address">Alamat Lengkap Usaha</label>
+                                <textarea id="businessAddress" name="Alamat Usaha" rows="3" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500" required></textarea>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1" data-translate="form_email">Alamat Email</label>
+                                    <input type="email" id="email" name="Email" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500" required>
+                                </div>
+                                <div>
+                                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1" data-translate="form_phone">Nomor Telepon / HP Aktif</label>
+                                    <input type="tel" id="phone" name="Nomor Telepon" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-8 grid grid-cols-2 gap-4">
+                            <button type="button" id="backToHomeButton" class="w-full bg-gray-200 text-gray-800 font-semibold py-3 px-4 rounded-md hover:bg-gray-300" data-translate="back_button">Kembali</button>
+                            <button type="submit" id="submitButton" class="w-full flex justify-center items-center bg-red-600 text-white font-semibold py-3 px-4 rounded-md hover:bg-red-700">
+                                <span id="buttonText" data-translate="submit_button">Daftar</span>
+                                <div id="loader" class="loader w-5 h-5 rounded-full border-2 border-white border-t-transparent ml-3" style="display: none;"></div>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- VIEW: Success & Error Messages -->
+            <section id="messageContainer" class="view p-4 md:p-8">
+                 <div class="max-w-2xl mx-auto bg-white rounded-xl shadow-lg p-8 text-center">
+                    <div id="successMessage" class="hidden">
+                        <i class="fas fa-check-circle text-6xl text-green-500"></i>
+                        <h3 class="mt-4 text-2xl font-semibold text-gray-800" data-translate="success_title">Pendaftaran Berhasil!</h3>
+                        <p class="text-gray-600 mt-2" data-translate="success_message">Terima kasih. Data Anda telah kami terima dan akan segera diproses. Tim kami akan menghubungi Anda untuk verifikasi.</p>
+                        <button class="message-reset-btn mt-6 bg-red-600 text-white font-semibold py-2 px-6 rounded-md hover:bg-red-700" data-translate="back_to_home_button">Kembali ke Halaman Utama</button>
+                    </div>
+                    <div id="errorMessage" class="hidden">
+                        <i class="fas fa-times-circle text-6xl text-red-500"></i>
+                        <h3 class="mt-4 text-2xl font-semibold text-gray-800" data-translate="error_title">Pendaftaran Gagal</h3>
+                        <p class="text-gray-600 mt-2" data-translate="error_message">Maaf, terjadi kesalahan. Silakan coba lagi dalam beberapa saat.</p>
+                        <button class="message-reset-btn mt-6 bg-red-600 text-white font-semibold py-2 px-6 rounded-md hover:bg-red-700" data-translate="try_again_button">Coba Lagi</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const views = {
+        landing: document.getElementById('landingPage'),
+        form: document.getElementById('formContainer'),
+        message: document.getElementById('messageContainer')
+    };
+
+    const taxRegistrationForm = document.getElementById('taxRegistrationForm');
+    const submitButton = document.getElementById('submitButton');
+    const buttonText = document.getElementById('buttonText');
+    const loader = document.getElementById('loader');
+
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+    
+    const translations = {
+        id: {
+            page_title: "GITA.id - Portal Pajak Daerah Badung",
+            header_title: "SISTEM INFORMASI EKSEKUTIF",
+            header_subtitle: "BAPENDA KABUPATEN BADUNG",
+            welcome_title: "Selamat Datang",
+            welcome_subtitle: "Website ini dibuat sebagai wujud komitmen kami untuk memberikan layanan informasi dan keterbukaan publik.",
+            login_button: "Masuk",
+            register_button: "Buat Akun",
+            dashboard_title: "TARGET VS REALISASI PAJAK DAERAH",
+            dashboard_subtitle: "Fitur dashboard lengkap akan tersedia setelah Anda masuk.",
+            form_title: "Pendaftaran Wajib Pajak Baru",
+            form_subtitle: "Daftarkan usaha Anda untuk mendapatkan NPWPD.",
+            form_owner_name: "Nama Pemilik / Penanggung Jawab",
+            form_business_name: "Nama Usaha / Objek Pajak",
+            form_tax_type: "Jenis Pajak",
+            form_tax_type_select: "-- Pilih Jenis Pajak --",
+            tax_hotel: "Pajak Hotel",
+            tax_restaurant: "Pajak Restoran",
+            tax_entertainment: "Pajak Hiburan",
+            tax_billboard: "Pajak Reklame",
+            form_address: "Alamat Lengkap Usaha",
+            form_email: "Alamat Email",
+            form_phone: "Nomor Telepon / HP Aktif",
+            back_button: "Kembali",
+            submit_button: "Daftar",
+            submit_button_loading: "Mengirim...",
+            success_title: "Pendaftaran Berhasil!",
+            success_message: "Terima kasih. Data Anda telah kami terima dan akan segera diproses. Tim kami akan menghubungi Anda untuk verifikasi.",
+            back_to_home_button: "Kembali ke Halaman Utama",
+            error_title: "Pendaftaran Gagal",
+            error_message: "Maaf, terjadi kesalahan. Silakan coba lagi dalam beberapa saat.",
+            try_again_button: "Coba Lagi"
+        },
+        en: {
+            page_title: "GITA.id - Badung Regional Tax Portal",
+            header_title: "EXECUTIVE INFORMATION SYSTEM",
+            header_subtitle: "BAPENDA BADUNG REGENCY",
+            welcome_title: "Welcome",
+            welcome_subtitle: "This website was created as a form of our commitment to provide information services and public transparency.",
+            login_button: "Login",
+            register_button: "Create Account",
+            dashboard_title: "TARGET VS REALIZATION OF REGIONAL TAX",
+            dashboard_subtitle: "Full dashboard features will be available after you log in.",
+            form_title: "New Taxpayer Registration",
+            form_subtitle: "Register your business to get a local taxpayer identification number (NPWPD).",
+            form_owner_name: "Owner's Name / Person in Charge",
+            form_business_name: "Business Name / Tax Object",
+            form_tax_type: "Type of Tax",
+            form_tax_type_select: "-- Select Tax Type --",
+            tax_hotel: "Hotel Tax",
+            tax_restaurant: "Restaurant Tax",
+            tax_entertainment: "Entertainment Tax",
+            tax_billboard: "Billboard Tax",
+            form_address: "Full Business Address",
+            form_email: "Email Address",
+            form_phone: "Active Phone Number",
+            back_button: "Back",
+            submit_button: "Register",
+            submit_button_loading: "Submitting...",
+            success_title: "Registration Successful!",
+            success_message: "Thank you. Your data has been received and will be processed shortly. Our team will contact you for verification.",
+            back_to_home_button: "Back to Home",
+            error_title: "Registration Failed",
+            error_message: "Sorry, an error occurred. Please try again in a few moments.",
+            try_again_button: "Try Again"
+        },
+        ru: {
+            page_title: "GITA.id - Налоговый портал Бадунга",
+            header_title: "ИСПОЛНИТЕЛЬНАЯ ИНФОРМАЦИОННАЯ СИСТЕМА",
+            header_subtitle: "BAPENDA РЕГЕНТСТВО БАДУНГ",
+            welcome_title: "Добро пожаловать",
+            welcome_subtitle: "Этот веб-сайт был создан как форма нашей приверженности предоставлению информационных услуг и общественной прозрачности.",
+            login_button: "Войти",
+            register_button: "Создать аккаунт",
+            dashboard_title: "ПЛАН ПРОТИВ РЕАЛИЗАЦИИ РЕГИОНАЛЬНОГО НАЛОГА",
+            dashboard_subtitle: "Полный функционал панели управления будет доступен после входа в систему.",
+            form_title: "Регистрация нового налогоплательщика",
+            form_subtitle: "Зарегистрируйте свой бизнес, чтобы получить местный идентификационный номер налогоплательщика (NPWPD).",
+            form_owner_name: "Имя владельца / Ответственное лицо",
+            form_business_name: "Название компании / объект налогообложения",
+            form_tax_type: "Вид налога",
+            form_tax_type_select: "-- Выберите вид налога --",
+            tax_hotel: "Гостиничный налог",
+            tax_restaurant: "Ресторанный налог",
+            tax_entertainment: "Налог на развлечения",
+            tax_billboard: "Налог на рекламу",
+            form_address: "Полный адрес компании",
+            form_email: "Адрес электронной почты",
+            form_phone: "Активный номер телефона",
+            back_button: "Назад",
+            submit_button: "Зарегистрироваться",
+            submit_button_loading: "Отправка...",
+            success_title: "Регистрация прошла успешно!",
+            success_message: "Спасибо. Ваши данные получены и будут обработаны в ближайшее время. Наша команда свяжется с вами для проверки.",
+            back_to_home_button: "Вернуться на главную",
+            error_title: "Ошибка регистрации",
+            error_message: "К сожалению, произошла ошибка. Пожалуйста, повторите попытку через несколько мгновений.",
+            try_again_button: "Попробовать снова"
+        }
+    };
+    
+    function switchView(viewName) {
+        Object.values(views).forEach(view => view.classList.remove('active'));
+        if (views[viewName]) {
+            views[viewName].classList.add('active');
+        }
+    }
+    
+    const langButtons = document.querySelectorAll('.lang-btn');
+    function setLanguage(lang) {
+        if (!translations[lang]) return;
+
+        localStorage.setItem('gita-lang', lang);
+        document.documentElement.lang = lang;
+
+        document.querySelectorAll('[data-translate]').forEach(el => {
+            const key = el.getAttribute('data-translate');
+            if (translations[lang][key]) {
+                el.textContent = translations[lang][key];
+            }
+        });
+        
+        langButtons.forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+    }
+
+    langButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            setLanguage(e.target.dataset.lang);
+        });
+    });
+
+    document.getElementById('showRegisterFormButton').addEventListener('click', () => switchView('form'));
+    document.getElementById('loginButton').addEventListener('click', () => alert('Fungsi "Masuk" sedang dalam pengembangan.'));
+    document.getElementById('backToHomeButton').addEventListener('click', () => switchView('landing'));
+    document.querySelectorAll('.message-reset-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+             taxRegistrationForm.reset();
+             switchView('landing');
+        });
+    });
+
+    taxRegistrationForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        
+        const lang = localStorage.getItem('gita-lang') || 'id';
+        buttonText.textContent = translations[lang].submit_button_loading;
+        loader.style.display = 'inline-block';
+        submitButton.disabled = true;
+
+        fetch(this.action, {
+            method: 'POST',
+            body: new FormData(this),
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+            switchView('message');
+            successMessage.classList.toggle('hidden', !response.ok);
+            errorMessage.classList.toggle('hidden', response.ok);
+        })
+        .catch(error => {
+            switchView('message');
+            successMessage.classList.add('hidden');
+            errorMessage.classList.remove('hidden');
+        })
+        .finally(() => {
+            const lang = localStorage.getItem('gita-lang') || 'id';
+            buttonText.textContent = translations[lang].submit_button;
+            loader.style.display = 'none';
+            submitButton.disabled = false;
+        });
+    });
+
+    // Initialize page
+    const savedLang = localStorage.getItem('gita-lang') || 'id';
+    setLanguage(savedLang);
+    switchView('landing');
+});
+</script>
+
+</body>
+</html>
+
