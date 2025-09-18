@@ -77,7 +77,7 @@
                     <button id="showRegisterFormButton" class="font-medium text-white bg-red-600 px-4 py-2 rounded-lg hover:bg-red-700 transition-colors" data-translate="register_button">Sign In</button>
                 </div>
                  <div id="loggedInUserMenu" class="hidden md:flex items-center space-x-4 text-sm">
-                    <span class="font-medium text-gray-700" data-translate="welcome_admin">Selamat Datang, Admin</span>
+                    <span id="welcomeMessage" class="font-medium text-gray-700"></span>
                     <button id="logoutButton" class="font-medium text-white bg-gray-600 px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors" data-translate="logout_button">Logout</button>
                 </div>
                 <!-- Language Switcher -->
@@ -174,8 +174,8 @@
             <section id="loginView" class="view py-12 bg-gray-50">
                 <div class="max-w-md mx-auto bg-white rounded-xl shadow-lg p-8">
                     <div class="text-center mb-8">
-                        <h2 class="text-2xl font-semibold text-gray-800" data-translate="login_title">Login Super Admin</h2>
-                        <p class="text-gray-500 mt-1" data-translate="login_subtitle">Akses dashboard internal GITA.id.</p>
+                        <h2 class="text-2xl font-semibold text-gray-800" data-translate="login_title">Login Pengguna</h2>
+                        <p class="text-gray-500 mt-1" data-translate="login_subtitle">Akses dasbor Anda.</p>
                     </div>
                     <form id="loginForm">
                         <div class="space-y-6">
@@ -244,6 +244,33 @@
                                 <a href="https://epalapa.badungkab.go.id/" target="_blank" class="text-center bg-red-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-red-700 transition-colors" data-translate="open_button_pbb">Buka Layanan PBB</a>
                             </div>
                          </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VIEW: Taxpayer Dashboard -->
+            <section id="taxpayerDashboardView" class="view py-12 bg-gray-50">
+                <div class="max-w-4xl mx-auto">
+                    <div class="bg-white rounded-xl shadow-lg p-8">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-4" data-translate="dashboard_wp_title">Dasbor Wajib Pajak</h2>
+                        <p class="text-gray-600 mb-8" data-translate="dashboard_wp_subtitle">Selamat datang di portal pelaporan Pajak Hotel & Restoran Anda.</p>
+                        
+                        <div class="p-6 border border-red-200 rounded-lg">
+                            <h3 class="text-xl font-semibold text-red-700" data-translate="report_form_title">Lapor Pajak Bulanan (e-SPTPD)</h3>
+                            <form id="taxReportForm" class="mt-4 space-y-4">
+                                <div>
+                                    <label for="month" class="block text-sm font-medium text-gray-700 mb-1" data-translate="report_month">Masa Pajak (Bulan)</label>
+                                    <input type="month" id="month" class="w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500" required>
+                                </div>
+                                <div>
+                                    <label for="omzet" class="block text-sm font-medium text-gray-700 mb-1" data-translate="report_omzet">Jumlah Omzet/Pendapatan (Rp)</label>
+                                    <input type="number" id="omzet" placeholder="Contoh: 50000000" class="w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-md focus:ring-red-500 focus:border-red-500" required>
+                                </div>
+                                <div class="pt-2">
+                                     <button type="submit" class="bg-red-600 text-white font-semibold py-2 px-6 rounded-md hover:bg-red-700" data-translate="report_submit_button">Kirim Laporan</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -342,7 +369,6 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-    // A dictionary to hold all text translations
     const translations = {
         id: {
             page_title: "GITA.id - Portal Pajak Daerah Badung",
@@ -350,8 +376,9 @@ document.addEventListener('DOMContentLoaded', function () {
             register_button: "Daftar",
             logout_button: "Keluar",
             welcome_admin: "Selamat Datang, Admin",
-            login_title: "Login Super Admin",
-            login_subtitle: "Akses dashboard internal GITA.id.",
+            welcome_wp: "Selamat Datang, Wajib Pajak",
+            login_title: "Login Pengguna",
+            login_subtitle: "Akses dasbor Anda.",
             login_username: "Username",
             login_password: "Password",
             login_error: "Username atau password salah.",
@@ -370,6 +397,13 @@ document.addEventListener('DOMContentLoaded', function () {
             pbb_bphtb_desc: "Layanan khusus untuk mengelola Pajak Bumi dan Bangunan serta Bea Perolehan Hak atas Tanah dan Bangunan.",
             open_button: "Buka E-Palapa",
             open_button_pbb: "Buka Layanan PBB",
+            dashboard_wp_title: "Dasbor Wajib Pajak",
+            dashboard_wp_subtitle: "Selamat datang di portal pelaporan Pajak Hotel & Restoran Anda.",
+            report_form_title: "Lapor Pajak Bulanan (e-SPTPD)",
+            report_month: "Masa Pajak (Bulan)",
+            report_omzet: "Jumlah Omzet/Pendapatan (Rp)",
+            report_submit_button: "Kirim Laporan",
+            report_success: "Laporan berhasil dikirim!",
             welcome_title: "Satu Rumah Digital untuk Pajak Daerah",
             welcome_subtitle: "Layanan terintegrasi untuk pendaftaran, pelaporan, dan pembayaran pajak yang lebih mudah, cepat, dan transparan.",
             dashboard_title: "Transparansi Pendapatan Daerah",
@@ -415,8 +449,9 @@ document.addEventListener('DOMContentLoaded', function () {
             register_button: "Sign In",
             logout_button: "Logout",
             welcome_admin: "Welcome, Admin",
-            login_title: "Super Admin Login",
-            login_subtitle: "Access the GITA.id internal dashboard.",
+            welcome_wp: "Welcome, Taxpayer",
+            login_title: "User Login",
+            login_subtitle: "Access your dashboard.",
             login_username: "Username",
             login_password: "Password",
             login_error: "Incorrect username or password.",
@@ -435,6 +470,13 @@ document.addEventListener('DOMContentLoaded', function () {
             pbb_bphtb_desc: "Special services to manage Land and Building Tax and Duty on Acquisition of Land and Building Rights.",
             open_button: "Open E-Palapa",
             open_button_pbb: "Open PBB Service",
+            dashboard_wp_title: "Taxpayer Dashboard",
+            dashboard_wp_subtitle: "Welcome to your Hotel & Restaurant Tax reporting portal.",
+            report_form_title: "Monthly Tax Report (e-SPTPD)",
+            report_month: "Tax Period (Month)",
+            report_omzet: "Total Revenue (Rp)",
+            report_submit_button: "Submit Report",
+            report_success: "Report submitted successfully!",
             welcome_title: "One Digital Home for Regional Taxes",
             welcome_subtitle: "Integrated services for easier, faster, and more transparent tax registration, reporting, and payment.",
             dashboard_title: "Transparency of Regional Revenue",
@@ -474,8 +516,9 @@ document.addEventListener('DOMContentLoaded', function () {
             register_button: "Регистрация",
             logout_button: "Выйти",
             welcome_admin: "Добро пожаловать, Администратор",
-            login_title: "Вход для суперадминистратора",
-            login_subtitle: "Доступ к внутренней панели управления GITA.id.",
+            welcome_wp: "Добро пожаловать, Налогоплательщик",
+            login_title: "Вход пользователя",
+            login_subtitle: "Доступ к вашей панели управления.",
             login_username: "Имя пользователя",
             login_password: "Пароль",
             login_error: "Неверное имя пользователя или пароль.",
@@ -494,6 +537,13 @@ document.addEventListener('DOMContentLoaded', function () {
             pbb_bphtb_desc: "Специальные услуги по управлению налогом на землю и здания и пошлиной на приобретение прав на землю и здания.",
             open_button: "Открыть E-Palapa",
             open_button_pbb: "Открыть Услугу PBB",
+            dashboard_wp_title: "Панель налогоплательщика",
+            dashboard_wp_subtitle: "Добро пожаловать в ваш портал отчетности по налогам на гостиницы и рестораны.",
+            report_form_title: "Ежемесячный налоговый отчет (e-SPTPD)",
+            report_month: "Налоговый период (месяц)",
+            report_omzet: "Общий доход (Rp)",
+            report_submit_button: "Отправить отчет",
+            report_success: "Отчет успешно отправлен!",
             welcome_title: "Единый цифровой дом для региональных налогов",
             welcome_subtitle: "Интегрированные услуги для более простой, быстрой и прозрачной регистрации, отчетности и уплаты налогов.",
             dashboard_title: "Прозрачность региональных доходов",
@@ -530,19 +580,21 @@ document.addEventListener('DOMContentLoaded', function () {
     };
 
     // --- STATE MANAGEMENT ---
-    let isLoggedIn = false;
+    let loggedInUser = null; // Can be 'admin', 'wp', or null
 
     // --- DOM Elements ---
     const views = {
         landing: document.getElementById('landingPage'),
         login: document.getElementById('loginView'),
         adminDashboard: document.getElementById('adminDashboardView'),
+        taxpayerDashboard: document.getElementById('taxpayerDashboardView'),
         form: document.getElementById('formContainer'),
         message: document.getElementById('messageContainer')
     };
     
     const taxRegistrationForm = document.getElementById('taxRegistrationForm');
     const loginForm = document.getElementById('loginForm');
+    const taxReportForm = document.getElementById('taxReportForm');
     
     const submitButton = document.getElementById('submitButton');
     const buttonText = document.getElementById('buttonText');
@@ -554,6 +606,7 @@ document.addEventListener('DOMContentLoaded', function () {
     
     const loggedOutUserMenu = document.getElementById('loggedOutUserMenu');
     const loggedInUserMenu = document.getElementById('loggedInUserMenu');
+    const welcomeMessage = document.getElementById('welcomeMessage');
     const logoutButton = document.getElementById('logoutButton');
     const whatsappButton = document.getElementById('whatsappButton');
     
@@ -576,9 +629,15 @@ document.addEventListener('DOMContentLoaded', function () {
      * Updates header UI based on login state.
      */
     function updateHeaderUI() {
-        if (isLoggedIn) {
+        const lang = localStorage.getItem('gita-lang') || 'id';
+        if (loggedInUser) {
             loggedOutUserMenu.classList.add('hidden');
             loggedInUserMenu.classList.remove('hidden');
+            if (loggedInUser === 'admin') {
+                welcomeMessage.textContent = translations[lang].welcome_admin;
+            } else if (loggedInUser === 'wp') {
+                welcomeMessage.textContent = translations[lang].welcome_wp;
+            }
         } else {
             loggedOutUserMenu.classList.remove('hidden');
             loggedInUserMenu.classList.add('hidden');
@@ -605,6 +664,7 @@ document.addEventListener('DOMContentLoaded', function () {
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.lang === lang);
         });
+        updateHeaderUI(); // Update welcome message on language change
     }
     
     // --- EVENT HANDLERS ---
@@ -614,23 +674,33 @@ document.addEventListener('DOMContentLoaded', function () {
         const password = loginForm.elements.password.value;
         const lang = localStorage.getItem('gita-lang') || 'id';
 
-        // --- Hardcoded Super Admin Credentials ---
-        if (username === 'admin' && password === 'admin123') {
-            isLoggedIn = true;
-            localStorage.setItem('gita-isLoggedIn', 'true'); // Save login status
+        // --- User Credentials ---
+        const users = {
+            admin: 'admin123',
+            wp: 'wp123'
+        };
+
+        if (users[username] && users[username] === password) {
+            loggedInUser = username; // 'admin' or 'wp'
+            localStorage.setItem('gita-loggedInUser', loggedInUser); // Save user type
             updateHeaderUI();
-            switchView('adminDashboard');
+            if (loggedInUser === 'admin') {
+                switchView('adminDashboard');
+            } else if (loggedInUser === 'wp') {
+                switchView('taxpayerDashboard');
+            }
             loginErrorMessage.classList.add('hidden');
             loginForm.reset();
         } else {
+            loggedInUser = null;
             loginErrorMessage.textContent = translations[lang].login_error;
             loginErrorMessage.classList.remove('hidden');
         }
     }
 
     function handleLogout() {
-        isLoggedIn = false;
-        localStorage.removeItem('gita-isLoggedIn'); // Remove login status
+        loggedInUser = null;
+        localStorage.removeItem('gita-loggedInUser'); // Remove user type
         updateHeaderUI();
         switchView('landing');
     }
@@ -656,6 +726,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Form Submissions
     loginForm.addEventListener('submit', handleLogin);
+
+    taxReportForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const lang = localStorage.getItem('gita-lang') || 'id';
+        alert(translations[lang].report_success);
+        this.reset();
+    });
+    
     taxRegistrationForm.addEventListener('submit', function (e) {
         e.preventDefault();
         
@@ -690,20 +768,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // --- INITIALIZATION ---
     function initializeApp() {
         const savedLang = localStorage.getItem('gita-lang') || 'id';
-        setLanguage(savedLang);
+        loggedInUser = localStorage.getItem('gita-loggedInUser'); // null, 'admin', or 'wp'
 
-        // Check login status from localStorage when the page loads
-        if (localStorage.getItem('gita-isLoggedIn') === 'true') {
-            isLoggedIn = true;
-        } else {
-            isLoggedIn = false;
-        }
-        
-        updateHeaderUI(); // Set initial header state based on login status
+        setLanguage(savedLang);
+        updateHeaderUI();
 
         // Show the correct initial view
-        if (isLoggedIn) {
+        if (loggedInUser === 'admin') {
             switchView('adminDashboard');
+        } else if (loggedInUser === 'wp') {
+            switchView('taxpayerDashboard');
         } else {
             switchView('landing');
         }
