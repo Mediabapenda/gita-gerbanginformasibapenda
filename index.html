@@ -340,7 +340,16 @@ document.addEventListener('DOMContentLoaded', function () {
     // A dictionary to hold all text translations
     const translations = {
         id: {
-            // ... existing code ... -->
+            page_title: "GITA.id - Portal Pajak Daerah Badung",
+            login_button: "Masuk",
+            register_button: "Daftar",
+            logout_button: "Keluar",
+            welcome_admin: "Selamat Datang, Admin",
+            login_title: "Login Super Admin",
+            login_subtitle: "Akses dashboard internal GITA.id.",
+            login_username: "Username",
+            login_password: "Password",
+            login_error: "Username atau password salah.",
             dashboard_admin_title: "Dashboard Super Admin",
             dashboard_access_all: "Akses semua aplikasi pelayanan pajak dan retribusi Bapenda Badung dari satu tempat.",
             menu_gita_id: "MENU GITA.id",
@@ -357,10 +366,55 @@ document.addEventListener('DOMContentLoaded', function () {
             open_button: "Buka",
             open_button_pbb: "Buka Layanan",
             welcome_title: "Satu Rumah Digital untuk Pajak Daerah",
-            // ... existing code ... -->
+            welcome_subtitle: "Layanan terintegrasi untuk pendaftaran, pelaporan, dan pembayaran pajak yang lebih mudah, cepat, dan transparan.",
+            dashboard_title: "Transparansi Pendapatan Daerah",
+            dashboard_subtitle: "Komitmen kami untuk keterbukaan informasi publik.",
+            dashboard_chart_title: "Realisasi Pajak Daerah 2025",
+            dashboard_realization: "Realisasi",
+            dashboard_target: "Target",
+            services_title: "Layanan Terpadu GITA.id",
+            services_subtitle: "Semua kebutuhan perpajakan Anda dalam satu portal.",
+            service_register: "Pendaftaran Wajib Pajak",
+            service_register_desc: "Daftarkan usaha baru Anda secara online dan dapatkan NPWPD dengan cepat.",
+            service_report: "Pelaporan Pajak (e-SPTPD)",
+            service_report_desc: "Laporkan omzet usaha Anda setiap bulan secara mandiri melalui sistem online.",
+            service_payment: "Pembayaran Online",
+            service_payment_desc: "Bayar pajak Anda dengan mudah melalui berbagai kanal pembayaran digital.",
+            form_title: "Pendaftaran Wajib Pajak Baru",
+            form_subtitle: "Daftarkan usaha Anda untuk mendapatkan NPWPD.",
+            form_owner_name: "Nama Pemilik / Penanggung Jawab",
+            form_business_name: "Nama Usaha / Objek Pajak",
+            form_tax_type: "Jenis Pajak",
+            form_tax_type_select: "-- Pilih Jenis Pajak --",
+            tax_hotel: "Pajak Hotel",
+            tax_restaurant: "Pajak Restoran",
+            tax_entertainment: "Pajak Hiburan",
+            tax_billboard: "Pajak Reklame",
+            form_address: "Alamat Lengkap Usaha",
+            form_email: "Alamat Email",
+            form_phone: "Nomor Telepon / HP Aktif",
+            back_button: "Kembali",
+            submit_button: "Daftar",
+            submit_button_loading: "Mengirim...",
+            success_title: "Pendaftaran Berhasil!",
+            success_message: "Terima kasih. Data Anda telah kami terima dan akan segera diproses. Tim kami akan menghubungi Anda untuk verifikasi.",
+            back_to_home_button: "Kembali ke Halaman Utama",
+            error_title: "Pendaftaran Gagal",
+            error_message: "Maaf, terjadi kesalahan. Silakan coba lagi dalam beberapa saat.",
+            try_again_button: "Coba Lagi",
+            footer_managed_by: "Dikelola oleh Bapenda Kabupaten Badung"
         },
         en: {
-            // ... existing code ... -->
+            page_title: "GITA.id - Badung Regional Tax Portal",
+            login_button: "Log In",
+            register_button: "Sign In",
+            logout_button: "Logout",
+            welcome_admin: "Welcome, Admin",
+            login_title: "Super Admin Login",
+            login_subtitle: "Access the GITA.id internal dashboard.",
+            login_username: "Username",
+            login_password: "Password",
+            login_error: "Incorrect username or password.",
             dashboard_admin_title: "Super Admin Dashboard",
             dashboard_access_all: "Access all Bapenda Badung tax and retribution service applications from one place.",
             menu_gita_id: "GITA.id MENU",
@@ -377,10 +431,49 @@ document.addEventListener('DOMContentLoaded', function () {
             open_button: "Open",
             open_button_pbb: "Open Service",
             welcome_title: "One Digital Home for Regional Taxes",
-            // ... existing code ... -->
+            welcome_subtitle: "Integrated services for easier, faster, and more transparent tax registration, reporting, and payment.",
+            dashboard_title: "Transparency of Regional Revenue",
+            dashboard_subtitle: "Our commitment to public information disclosure.",
+            dashboard_chart_title: "Regional Tax Realization 2025",
+            dashboard_realization: "Realization",
+            dashboard_target: "Target",
+            services_title: "GITA.id Integrated Services",
+            services_subtitle: "All your tax needs in one portal.",
+            form_title: "New Taxpayer Registration",
+            form_subtitle: "Register your business to get a local taxpayer identification number (NPWPD).",
+            form_owner_name: "Owner's Name / Person in Charge",
+            form_business_name: "Business Name / Tax Object",
+            form_tax_type: "Type of Tax",
+            form_tax_type_select: "-- Select Tax Type --",
+            tax_hotel: "Hotel Tax",
+            tax_restaurant: "Restaurant Tax",
+            tax_entertainment: "Entertainment Tax",
+            tax_billboard: "Billboard Tax",
+            form_address: "Full Business Address",
+            form_email: "Email Address",
+            form_phone: "Active Phone Number",
+            back_button: "Back",
+            submit_button: "Register",
+            submit_button_loading: "Submitting...",
+            success_title: "Registration Successful!",
+            success_message: "Thank you. Your data has been received and will be processed shortly. Our team will contact you for verification.",
+            back_to_home_button: "Back to Home",
+            error_title: "Registration Failed",
+            error_message: "Sorry, an error occurred. Please try again in a few moments.",
+            try_again_button: "Try Again",
+            footer_managed_by: "Managed by Bapenda of Badung Regency"
         },
         ru: {
-            // ... existing code ... -->
+            page_title: "GITA.id - Налоговый портал Бадунга",
+            login_button: "Войти",
+            register_button: "Регистрация",
+            logout_button: "Выйти",
+            welcome_admin: "Добро пожаловать, Администратор",
+            login_title: "Вход для суперадминистратора",
+            login_subtitle: "Доступ к внутренней панели управления GITA.id.",
+            login_username: "Имя пользователя",
+            login_password: "Пароль",
+            login_error: "Неверное имя пользователя или пароль.",
             dashboard_admin_title: "Панель администратора",
             dashboard_access_all: "Доступ ко всем сервисным приложениям Bapenda Badung по налогам и сборам из одного места.",
             menu_gita_id: "МЕНЮ GITA.id",
@@ -397,16 +490,215 @@ document.addEventListener('DOMContentLoaded', function () {
             open_button: "Открыть",
             open_button_pbb: "Открыть услугу",
             welcome_title: "Единый цифровой дом для региональных налогов",
-            // ... existing code ... -->
+            welcome_subtitle: "Интегрированные услуги для более простой, быстрой и прозрачной регистрации, отчетности и уплаты налогов.",
+            dashboard_title: "Прозрачность региональных доходов",
+            dashboard_subtitle: "Наша приверженность раскрытию публичной информации.",
+            dashboard_chart_title: "Реализация региональных налогов 2025",
+            dashboard_realization: "Реализация",
+            dashboard_target: "Цель",
+            services_title: "Интегрированные услуги GITA.id",
+            services_subtitle: "Все ваши налоговые потребности на одном портале.",
+            form_title: "Регистрация нового налогоплательщика",
+            form_subtitle: "Зарегистрируйте свой бизнес, чтобы получить местный идентификационный номер налогоплательщика (NPWPD).",
+            form_owner_name: "Имя владельца / Ответственное лицо",
+            form_business_name: "Название компании / объект налогообложения",
+            form_tax_type: "Вид налога",
+            form_tax_type_select: "-- Выберите вид налога --",
+            tax_hotel: "Гостиничный налог",
+            tax_restaurant: "Ресторанный налог",
+            tax_entertainment: "Налог на развлечения",
+            tax_billboard: "Налог на рекламу",
+            form_address: "Полный адрес компании",
+            form_email: "Адрес электронной почты",
+            form_phone: "Активный номер телефона",
+            back_button: "Назад",
+            submit_button: "Зарегистрироваться",
+            submit_button_loading: "Отправка...",
+            success_title: "Регистрация прошла успешно!",
+            success_message: "Спасибо. Ваши данные получены и будут обработаны в ближайшее время. Наша команда свяжется с вами для проверки.",
+            back_to_home_button: "Вернуться на главную",
+            error_title: "Ошибка регистрации",
+            error_message: "К сожалению, произошла ошибка. Пожалуйста, повторите попытку через несколько мгновений.",
+            try_again_button: "Попробовать снова",
+            footer_managed_by: "Управляется Bapenda округа Бадунг"
         }
     };
 
     // --- STATE MANAGEMENT ---
-// ... existing code ... -->
+    let isLoggedIn = false;
+
+    // --- DOM Elements ---
+    const views = {
+        landing: document.getElementById('landingPage'),
+        login: document.getElementById('loginView'),
+        adminDashboard: document.getElementById('adminDashboardView'),
+        form: document.getElementById('formContainer'),
+        message: document.getElementById('messageContainer')
+    };
+    
+    const taxRegistrationForm = document.getElementById('taxRegistrationForm');
+    const loginForm = document.getElementById('loginForm');
+    
+    const submitButton = document.getElementById('submitButton');
+    const buttonText = document.getElementById('buttonText');
+    const loader = document.getElementById('loader');
+    
+    const successMessage = document.getElementById('successMessage');
+    const errorMessage = document.getElementById('errorMessage');
+    const loginErrorMessage = document.getElementById('loginErrorMessage');
+    
+    const loggedOutUserMenu = document.getElementById('loggedOutUserMenu');
+    const loggedInUserMenu = document.getElementById('loggedInUserMenu');
+    const logoutButton = document.getElementById('logoutButton');
+    
+    /**
+     * Switches the active view.
+     * @param {string} viewName - The name of the view to show.
+     */
+    function switchView(viewName) {
+        Object.values(views).forEach(view => view.classList.remove('active'));
+        if (views[viewName]) {
+            views[viewName].classList.add('active');
+            window.scrollTo(0, 0);
+        }
+    }
+
+    /**
+     * Updates header UI based on login state.
+     */
+    function updateHeaderUI() {
+        if (isLoggedIn) {
+            loggedOutUserMenu.classList.add('hidden');
+            loggedInUserMenu.classList.remove('hidden');
+        } else {
+            loggedOutUserMenu.classList.remove('hidden');
+            loggedInUserMenu.classList.add('hidden');
+        }
+    }
+    
+    /**
+     * Applies the selected language to all elements with a data-translate attribute.
+     * @param {string} lang - The language code ('id', 'en', 'ru').
+     */
+    function setLanguage(lang) {
+        if (!translations[lang]) return;
+
+        localStorage.setItem('gita-lang', lang);
+        document.documentElement.lang = lang;
+
+        document.querySelectorAll('[data-translate]').forEach(el => {
+            const key = el.getAttribute('data-translate');
+            if (translations[lang][key]) {
+                el.textContent = translations[lang][key];
+            }
+        });
+        
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.lang === lang);
+        });
+    }
+    
+    // --- EVENT HANDLERS ---
+    function handleLogin(e) {
+        e.preventDefault();
+        const username = loginForm.elements.username.value;
+        const password = loginForm.elements.password.value;
+        const lang = localStorage.getItem('gita-lang') || 'id';
+
+        // --- Hardcoded Super Admin Credentials ---
+        if (username === 'admin' && password === 'admin123') {
+            isLoggedIn = true;
+            localStorage.setItem('gita-isLoggedIn', 'true'); // Save login status
+            updateHeaderUI();
+            switchView('adminDashboard');
+            loginErrorMessage.classList.add('hidden');
+            loginForm.reset();
+        } else {
+            loginErrorMessage.textContent = translations[lang].login_error;
+            loginErrorMessage.classList.remove('hidden');
+        }
+    }
+
+    function handleLogout() {
+        isLoggedIn = false;
+        localStorage.removeItem('gita-isLoggedIn'); // Remove login status
+        updateHeaderUI();
+        switchView('landing');
+    }
+
+    // --- EVENT LISTENERS ---
+    document.querySelectorAll('.lang-btn').forEach(button => {
+        button.addEventListener('click', (e) => setLanguage(e.target.dataset.lang));
+    });
+    
+    // Navigation buttons
+    document.getElementById('loginButton').addEventListener('click', () => switchView('login'));
+    document.getElementById('showRegisterFormButton').addEventListener('click', () => switchView('form'));
+    document.getElementById('backToHomeButton').addEventListener('click', () => switchView('landing'));
+    document.getElementById('backToHomeFromLogin').addEventListener('click', () => switchView('landing'));
+    logoutButton.addEventListener('click', handleLogout);
+
+    document.querySelectorAll('.message-reset-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+             taxRegistrationForm.reset();
+             switchView('landing');
+        });
+    });
+
+    // Form Submissions
+    loginForm.addEventListener('submit', handleLogin);
+    taxRegistrationForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        
+        const lang = localStorage.getItem('gita-lang') || 'id';
+        buttonText.textContent = translations[lang].submit_button_loading;
+        loader.style.display = 'inline-block';
+        submitButton.disabled = true;
+
+        fetch(this.action, {
+            method: 'POST',
+            body: new FormData(this),
+            headers: { 'Accept': 'application/json' }
+        })
+        .then(response => {
+            switchView('message');
+            successMessage.classList.toggle('hidden', !response.ok);
+            errorMessage.classList.toggle('hidden', response.ok);
+        })
+        .catch(error => {
+            switchView('message');
+            successMessage.classList.add('hidden');
+            errorMessage.classList.remove('hidden');
+        })
+        .finally(() => {
+            const lang = localStorage.getItem('gita-lang') || 'id';
+            buttonText.textContent = translations[lang].submit_button;
+            loader.style.display = 'none';
+            submitButton.disabled = false;
+        });
+    });
+
+    // --- INITIALIZATION ---
+    function initializeApp() {
+        const savedLang = localStorage.getItem('gita-lang') || 'id';
+        setLanguage(savedLang);
+
+        // Check login status from localStorage when the page loads
+        if (localStorage.getItem('gita-isLoggedIn') === 'true') {
+            isLoggedIn = true;
+            switchView('adminDashboard');
+        } else {
+            isLoggedIn = false;
+            switchView('landing'); // Always show the landing page if not logged in
+        }
+        
+        updateHeaderUI(); // Set initial header state based on login status
+    }
+
+    initializeApp();
 });
 </script>
 
 </body>
 </html>
-
 
